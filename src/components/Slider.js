@@ -33,7 +33,7 @@ function Sliders() {
 
 export default Sliders
 const Container = styled.div`
-
+padding-bottom:10px;
 `
 const Carousel = styled(Slider)`
 margin:20px 40px;
