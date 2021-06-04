@@ -55,6 +55,9 @@ const ProductInfoTop = styled.div`
 a{
     text-decoration:none;
     font-weight:500;
+    :focus{
+        color:#6666ff;
+    }
 }
 `
 const ProductInfoBottom = styled.div``
