@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function SubTotal() {
+function SubTotal({ totalQty, totalPrice }) {
     return (
         <Container>
             <Sub>
-                <p>SubTotal (2 items) :</p> <h3>$200.00</h3>
+                <p>SubTotal ({totalQty} items) :</p> <h3>${totalPrice}</h3>
             </Sub>
             <CheckoutBtn>
                 Proceed Checkout

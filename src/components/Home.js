@@ -10,6 +10,7 @@ import Sliders from './Slider'
 
 
 function Home() {
+
     const dispatch = useDispatch()
     useEffect(() => {
         db.collection('products').onSnapshot(snapshot => {
@@ -25,7 +26,12 @@ function Home() {
     return (
         <Container>
             <Sliders />
-            <CardProduct />
+
+            <CardProduct
+
+            />
+
+
         </Container>
     )
 }
@@ -34,4 +40,5 @@ export default Home
 const Container = styled.div`
 height:100vh;
 width:100%;
+//overflow-x:hidden;
 `

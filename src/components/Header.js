@@ -5,7 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Header({ totalQty }) {
     return (
         <Container>
             <Link to="/">
@@ -58,7 +58,7 @@ function Header() {
                     <Cart>
                         <CartIc />
                     </Cart>
-                    <QtyItem>2</QtyItem>
+                    <QtyItem>{totalQty}</QtyItem>
                 </Link>
             </CartContainer>
 
