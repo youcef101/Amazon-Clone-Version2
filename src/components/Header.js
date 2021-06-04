@@ -3,11 +3,14 @@ import styled from 'styled-components'
 import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import { Link } from 'react-router-dom';
 
 function Header() {
     return (
         <Container>
-            <AmazonLogo src="https://i.imgur.com/7I9Was5.png" />
+            <Link to="/">
+                <AmazonLogo src="https://i.imgur.com/7I9Was5.png" />
+            </Link>
             <AdresseContainer>
                 <Marker>
                     <Location />
@@ -51,10 +54,12 @@ function Header() {
                     </SecondLineOption>
             </OrderContainer>
             <CartContainer>
-                <Cart>
-                    <CartIc />
-                </Cart>
-                <QtyItem>2</QtyItem>
+                <Link to="/cart">
+                    <Cart>
+                        <CartIc />
+                    </Cart>
+                    <QtyItem>2</QtyItem>
+                </Link>
             </CartContainer>
 
 
@@ -103,6 +108,9 @@ margin-left:10px;
 border-radius:7px;
 overflow:hidden;
 flex-grow:1;
+:focus-within{
+    box-shadow:0 0 0 3px #F90;
+}
 `
 const SearchInput = styled.input`
 height:30px;
@@ -137,6 +145,11 @@ const CartContainer = styled.div`
 display:flex;
 padding-right:10px;
 cursor:pointer;
+a{
+    display:flex;
+    text-decoration:none;
+    color:white;
+}
 `
 const Cart = styled.div`
 margin-left:10px;
