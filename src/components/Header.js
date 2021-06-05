@@ -4,8 +4,20 @@ import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUsername, setSignOut } from '../features/user/userSlice';
+import { auth } from '../Firebase';
 
 function Header({ totalQty }) {
+    const username = useSelector(selectUsername)
+    const dispatch = useDispatch()
+    const SignOut = () => {
+        auth.signOut()
+            .then(res => {
+                localStorage.removeItem('user')
+                dispatch(setSignOut())
+            })
+    }
     return (
         <Container>
             <Link to="/">
@@ -18,7 +30,7 @@ function Header({ totalQty }) {
 
                 <Adresse>
                     <FirstLineOption>
-                        Deliver to youcef
+                        Deliver to {username}
                     </FirstLineOption>
                     <SecondLineOption>
                         Tunis 8031
@@ -37,9 +49,9 @@ function Header({ totalQty }) {
             </SearchContainer>
             <AccountContainer>
                 <FirstLineOption>
-                    Hello,Youssef
-                    </FirstLineOption>
-                <SecondLineOption>
+                    Hello,{username}
+                </FirstLineOption>
+                <SecondLineOption onClick={SignOut}>
                     Account & Lists
 
                     </SecondLineOption>
